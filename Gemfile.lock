@@ -1,7 +1,12 @@
+GIT
+  remote: https://github.com/lukecaptaincode/MediaScraperGem.git
+  revision: 2c504988a484ebfc69f99b3e1b7c431f91cecd61
+  specs:
+    MediaScraper (1.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
-    MediaScraper (1.0.0)
     actioncable (5.2.3)
       actionpack (= 5.2.3)
       nio4r (~> 2.0)
@@ -235,7 +240,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  MediaScraper (~> 1.0.0)
+  MediaScraper (~> 1.0.0)!
   bootsnap (>= 1.1.0)
   bootstrap
   byebug

@@ -64,7 +64,7 @@ gem 'devise'
 gem 'bootstrap'
 gem 'jquery-rails'
 gem 'devise-bootstrap-views', '~> 1.0'
-gem 'MediaScraper', '~> 1.0.0'
+gem 'MediaScraper', '~> 1.0.0',:git => 'https://github.com/lukecaptaincode/MediaScraperGem.git'
 
 group :development do
   gem 'sqlite3'
