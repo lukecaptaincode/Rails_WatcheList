@@ -1,0 +1,29 @@
+var returnedValue = "<%= @returnValue.to_json %>".replace(/&quot;/g, '\"')
+var returnType = "<%= @searchType %>"
+var title = "";
+var genre = "";
+var releaseDate = "";
+if (returnType === "movie") {
+    var parsedReturnValue = JSON.parse(returnedValue);
+    console.log(parsedReturnValue);
+    title = parsedReturnValue.Title;
+    genre = parsedReturnValue.Genre;
+    releaseDate = parsedReturnValue.Year;
+    $("#" + returnType + "Director").val(parsedReturnValue.Director);
+    $("#" + returnType + "Studio").val(parsedReturnValue.Production);
+} else if (returnType === "game"){
+    var tmpReturnValue = JSON.parse(returnedValue.substring(1, returnedValue.length-1))[0];
+    title = tmpReturnValue.name
+    releaseDate = new Date(1000*tmpReturnValue.first_release_date).getFullYear();
+} else if (returnType === "book"){
+    var xmlDoc = jQuery.parseXML(returnedValue.substring(1, returnedValue.length-1));
+    $xml = $(xmlDoc)
+    $firstBook = $($xml.find('search>results>work')[0]);
+    releaseDate = $firstBook.find('original_publication_year').text();
+    title = $firstBook.find('best_book>title').text();
+    $("#" + returnType + "Author").val($firstBook.find('best_book>author>name').text());
+}
+
+$("#" + returnType + "Title").val(title);
+$("#" + returnType + "Genre").val(genre);
+$("#" + returnType + "Date").val(releaseDate);

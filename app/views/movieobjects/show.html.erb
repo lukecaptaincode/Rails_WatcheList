@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+<script>
+    window.location = "/";
+</script>
+<p>
+  <strong>Studio:</strong>
+  <%= @movieobject.studio %>
+</p>
+
+<p>
+  <strong>Director:</strong>
+  <%= @movieobject.director %>
+</p>
+
+<p>
+  <strong>Mid:</strong>
+  <%= @movieobject.mid %>
+</p>
+
+<%= link_to 'Edit', edit_movieobject_path(@movieobject) %> |
+<%= link_to 'Back', movieobjects_path %>

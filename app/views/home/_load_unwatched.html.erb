@@ -1,0 +1,50 @@
+<% @med.each do |mediaobject| %>
+  <% if mediaobject.status == "unwatched" %>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><%= mediaobject.title %></h5>
+        <h6 class="card-subtitle mb-2 text-muted"><%= mediaobject.genre %></h6>
+        <h6 class="card-subtitle mb-2 text-muted"><%= mediaobject.status %></h6>
+        <p class="card-text"><%= mediaobject.releasedate %></p>
+        <hr>
+        <p class="card-subtitle mb-2 text-muted">Additional Info</p>
+        <% @allBooks = Bookobject.where(mid: mediaobject.mid) %>
+        <% @allBooks.each do |book| %>
+          <p class="card-text">Author: <%= book.author %></p>
+          <p class="card-text">Publisher: <%= book.publisher %></p>
+          <p class="card-text"><%= link_to 'Edit Additional', edit_bookobject_path(book), :class => 'card-link' %></p>
+        <% end %>
+        <% @allGames = Gameobject.where(mid: mediaobject.mid) %>
+        <% @allGames.each do |game| %>
+          <p class="card-text">Author: <%= game.developer %></p>
+          <p class="card-text">Publisher: <%= game.publisher %></p>
+          <p class="card-text">Platform: <%= game.platform %></p>
+          <p class="card-text"><%= link_to 'Edit Additional', edit_gameobject_path(game), :class => 'card-link' %></p>
+        <% end %>
+        <% @allMovies = Movieobject.where(mid: mediaobject.mid) %>
+        <% @allMovies.each do |movie| %>
+          <p class="card-text">Director: <%= movie.director %></p>
+          <p class="card-text">Studio: <%= movie.studio %></p>
+          <p class="card-text"><%= link_to 'Edit Additional', edit_movieobject_path(movie), :class => 'card-link' %></p>
+        <% end %>
+
+      </div>
+      <div class="card-footer">
+        <%= form_tag({controller: "addmedia", action: "watch"}, method: "post", class: 'form-inline', remote: true) do %>
+          <%= hidden_field_tag :watchedId, mediaobject.mid %>
+          <div class="form-row">
+            <div class="col">
+              <%= link_to 'Delete', mediaobject, method: :delete, data: {confirm: 'Are you sure?'}, :class => 'card-link' %>
+            </div>
+            <div class="col">
+              <%= link_to 'Edit', edit_mediaobject_path(mediaobject), :class => 'card-link' %>
+            </div>
+            <div class="col">
+              <%= submit_tag "Watched", class: 'btn btn-dark mb-2 ' %>
+            </div>
+        <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>

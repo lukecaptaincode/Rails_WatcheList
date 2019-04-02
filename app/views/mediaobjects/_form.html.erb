@@ -1,0 +1,32 @@
+<%= form_with(model: mediaobject, local: true) do |form| %>
+  <% if mediaobject.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(mediaobject.errors.count, "error") %> prohibited this mediaobject from being saved:</h2>
+
+      <ul>
+      <% mediaobject.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :genre %>
+    <%= form.text_field :genre %>
+  </div>
+
+  <div class="field">
+    <%= form.label :releasedate %>
+    <%= form.text_field :releasedate %>
+  </div>
+
+  <div class="actions btn btn-dark">
+    <%= form.submit %>
+  </div>
+<% end %>

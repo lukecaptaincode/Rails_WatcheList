@@ -1,0 +1,37 @@
+<%= form_with(model: gameobject, local: true) do |form| %>
+  <% if gameobject.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(gameobject.errors.count, "error") %> prohibited this gameobject from being saved:</h2>
+
+      <ul>
+      <% gameobject.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :publisher %>
+    <%= form.text_field :publisher %>
+  </div>
+
+  <div class="field">
+    <%= form.label :developer %>
+    <%= form.text_field :developer %>
+  </div>
+
+  <div class="field">
+    <%= form.label :platform %>
+    <%= form.text_field :platform %>
+  </div>
+
+<!--  <div class="field">-->
+    <%#= form.label :mid %>
+    <%#= form.text_field :mid %>
+<!--  </div>-->
+
+  <div class="actions btn btn-dark">
+    <%= form.submit %>
+  </div>
+<% end %>

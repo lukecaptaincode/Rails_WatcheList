@@ -1,0 +1,2 @@
+module AddmediaHelper
+end

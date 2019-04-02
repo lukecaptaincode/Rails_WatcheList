@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Gameobjects</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Publisher</th>
+      <th>Developer</th>
+      <th>Platform</th>
+      <th>Mid</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @gameobjects.each do |gameobject| %>
+      <tr>
+        <td><%= gameobject.publisher %></td>
+        <td><%= gameobject.developer %></td>
+        <td><%= gameobject.platform %></td>
+        <td><%= gameobject.mid %></td>
+        <td><%= link_to 'Show', gameobject %></td>
+        <td><%= link_to 'Edit', edit_gameobject_path(gameobject) %></td>
+        <td><%= link_to 'Destroy', gameobject, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Gameobject', new_gameobject_path %>

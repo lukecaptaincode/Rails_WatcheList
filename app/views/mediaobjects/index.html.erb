@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Mediaobjects</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Genre</th>
+      <th>Releasedate</th>
+      <th>Uid</th>
+      <th>Mid</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @mediaobjects.each do |mediaobject| %>
+      <tr>
+        <td><%= mediaobject.title %></td>
+        <td><%= mediaobject.genre %></td>
+        <td><%= mediaobject.releasedate %></td>
+        <td><%= mediaobject.uid %></td>
+        <td><%= mediaobject.mid %></td>
+        <td><%= link_to 'Show', mediaobject %></td>
+        <td><%= link_to 'Edit', edit_mediaobject_path(mediaobject) %></td>
+        <td><%= link_to 'Destroy', mediaobject, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Mediaobject', new_mediaobject_path %>

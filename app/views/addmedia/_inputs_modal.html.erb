@@ -1,0 +1,42 @@
+<%= form_tag({controller: "addmedia", action: "addmedia"}, method: "post", remote: true) do %>
+  <div class="form-group">
+    <%= text_field_tag :title, "", class: 'form-control', id: mediaType + 'Title', placeholder: 'Title' %>
+  </div>
+  <div class="form-group">
+    <%= text_field_tag :genre, "", class: 'form-control', id: mediaType + 'Genre', placeholder: 'Genre' %>
+  </div>
+  <div class="form-group">
+    <%= text_field_tag :releaseDate, "", class: 'form-control', id: mediaType + 'Date', placeholder: 'Release' %>
+    <%= hidden_field_tag :userID, current_user.id %>
+    <%= hidden_field_tag :mediaId, SecureRandom.hex %>
+    <%= hidden_field_tag :mediaType, mediaType %>
+  </div>
+  <% if mediaType === 'book' %>
+    <div class="form-group">
+      <%= text_field_tag :author, "", class: 'form-control', id: mediaType + 'Author', placeholder: 'Author' %>
+    </div>
+    <div class="form-group">
+      <%= text_field_tag :publisher, "", class: 'form-control', id: mediaType + 'Publisher', placeholder: 'Publisher' %>
+    </div>
+  <% end %>
+  <% if mediaType === 'game' %>
+    <div class="form-group">
+      <%= text_field_tag :publisher, "", class: 'form-control', id: mediaType + 'Publisher', placeholder: 'Publisher' %>
+    </div>
+    <div class="form-group">
+      <%= text_field_tag :developer, "", class: 'form-control', id: mediaType + 'Developer', placeholder: 'Developer' %>
+    </div>
+    <div class="form-group">
+      <%= text_field_tag :platform, "", class: 'form-control', id: mediaType + 'Platform', placeholder: 'Platform' %>
+    </div>
+  <% end %>
+  <% if mediaType === 'movie' %>
+    <div class="form-group">
+      <%= text_field_tag :studio, "", class: 'form-control', id: mediaType + 'Studio', placeholder: 'Studio' %>
+    </div>
+    <div class="form-group">
+      <%= text_field_tag :director, "", class: 'form-control', id: mediaType + 'Director', placeholder: 'Director' %>
+    </div>
+  <% end %>
+  <%= submit_tag "Add", class: 'btn btn-dark' %>
+<% end %>

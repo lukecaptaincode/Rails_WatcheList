@@ -1,0 +1,2 @@
+class Mediaobject < ApplicationRecord
+end

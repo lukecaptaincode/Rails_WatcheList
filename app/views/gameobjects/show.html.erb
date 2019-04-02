@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+<script>
+    window.location = "/";
+</script>
+<p>
+  <strong>Publisher:</strong>
+  <%= @gameobject.publisher %>
+</p>
+
+<p>
+  <strong>Developer:</strong>
+  <%= @gameobject.developer %>
+</p>
+
+<p>
+  <strong>Platform:</strong>
+  <%= @gameobject.platform %>
+</p>
+
+<p>
+  <strong>Mid:</strong>
+  <%= @gameobject.mid %>
+</p>
+
+<%= link_to 'Edit', edit_gameobject_path(@gameobject) %> |
+<%= link_to 'Back', gameobjects_path %>

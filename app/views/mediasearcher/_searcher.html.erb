@@ -1,0 +1,8 @@
+<%= form_tag({controller: "mediasearcher", action: "search"}, method: "post", class: 'form-inline', remote:true) do %>
+  <div class="form-group  mb-2">
+    <%= text_field_tag :title, "", class: 'form-control', id: 'searchTitle', placeholder: 'Enter ' + mediaType + ' title' %>
+    <%= hidden_field_tag :searchType, mediaType %>
+  </div>
+  <%= submit_tag "Search", class: 'btn btn-dark mb-2 ' %>
+<% end %>
+

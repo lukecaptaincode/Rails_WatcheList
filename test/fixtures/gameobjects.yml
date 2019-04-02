@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  publisher: MyString
+  developer: MyString
+  platform: MyString
+  mid: MyString
+
+two:
+  publisher: MyString
+  developer: MyString
+  platform: MyString
+  mid: MyString

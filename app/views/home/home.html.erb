@@ -1,0 +1,32 @@
+<%require 'securerandom' %>
+<div class="row">
+  <div class="col-xl">
+    <p>Welcome <%= current_user.email.split("@")[0] %></p>
+    <nav class="nav nav-pills flex-column flex-sm-row">
+      <a class="flex-sm-fill btn-dark text-sm-center nav-link active" href="#" data-toggle="modal" data-target="#movieModal">Movie
+        +</a>
+      <a class="flex-sm-fill text-sm-center nav-link btn-secondary active" href="#" data-toggle="modal" data-target="#gameModal">Game
+        +</a>
+      <a class="flex-sm-fill btn-dark text-sm-center nav-link active" href="#" data-toggle="modal" data-target="#bookModal">Book
+        +</a>
+    </nav>
+  </div>
+</div>
+<div class="row">
+  <div class="col border border-secondary watch-container">
+    <h4>
+      To-Watch
+    </h4>
+    <%= render "home/load_unwatched" %>
+  </div>
+  <div class="col border border-secondary watch-container">
+    <h4>
+      Watched
+    </h4>
+    <%= render "home/load_watched" %>
+  </div>
+</div>
+
+<%= render "home/movie_modal" %>
+<%= render "home/game_modal" %>
+<%= render "home/book_modal" %>

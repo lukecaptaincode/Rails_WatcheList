@@ -1,0 +1,32 @@
+<% @med.each do |mediaobject| %>
+  <% if mediaobject.status == "watched" %>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><%= mediaobject.title %></h5>
+        <h6 class="card-subtitle mb-2 text-muted"><%= mediaobject.genre %></h6>
+        <p class="card-text"><%= mediaobject.releasedate %></p>
+        <hr>
+        <p class="card-subtitle mb-2 text-muted">Additional Info</p>
+        <% @allBooks = Bookobject.where(mid: mediaobject.mid) %>
+        <% @allBooks.each do |book| %>
+          <p class="card-text">Author: <%= book.author %></p>
+          <p class="card-text">Publisher: <%= book.publisher %></p>
+        <% end %>
+        <% @allGames = Gameobject.where(mid: mediaobject.mid) %>
+        <% @allGames.each do |game| %>
+          <p class="card-text">Author: <%= game.developer %></p>
+          <p class="card-text">Publisher: <%= game.publisher %></p>
+          <p class="card-text">Platform: <%= game.platform %></p>
+        <% end %>
+        <% @allMovies = Movieobject.where(mid: mediaobject.mid) %>
+        <% @allMovies.each do |movie| %>
+          <p class="card-text">Director: <%= movie.director %></p>
+          <p class="card-text">Studio: <%= movie.studio %></p>
+        <% end %>
+        <div class="card-footer">
+          <%= link_to 'Delete', mediaobject, method: :delete, data: {confirm: 'Are you sure?'}, :class => 'card-link' %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>

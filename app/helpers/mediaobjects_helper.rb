@@ -1,0 +1,2 @@
+module MediaobjectsHelper
+end

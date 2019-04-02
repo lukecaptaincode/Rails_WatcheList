@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+<script>
+    window.location = "/";
+</script>
+<p>
+  <strong>Author:</strong>
+  <%= @bookobject.author %>
+</p>
+
+<p>
+  <strong>Publisher:</strong>
+  <%= @bookobject.publisher %>
+</p>
+
+<p>
+  <strong>Mid:</strong>
+  <%= @bookobject.mid %>
+</p>
+
+<%= link_to 'Edit', edit_bookobject_path(@bookobject) %> |
+<%= link_to 'Back', bookobjects_path %>
