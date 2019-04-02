@@ -64,7 +64,8 @@ gem 'devise'
 gem 'bootstrap'
 gem 'jquery-rails'
 gem 'devise-bootstrap-views', '~> 1.0'
-gem 'MediaScraper'
+gem 'MediaScraper', '~> 1.0.0'
+
 group :development do
   gem 'sqlite3'
 end
